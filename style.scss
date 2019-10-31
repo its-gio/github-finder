@@ -2,6 +2,7 @@
 
 body {
   background: url("/images/45degreee_fabric.png");
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 // Form Styles
@@ -9,9 +10,12 @@ form {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  justify-content: space-around;
-	position: relative;
+  justify-content: center;
+  max-width: 500px;
   margin: 0 auto;
+  height: 150px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, .3);
 }
 
 .input-container {
