@@ -1,3 +1,69 @@
+* { box-sizing: border-box; }
+
 body {
-  background: url("/images/crossline-dots.png");
+  background: url("/images/45degreee_fabric.png");
+}
+
+// Form Styles
+form {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-around;
+	position: relative;
+  margin: 0 auto;
+}
+
+.input-container {
+  position: relative;
+  width: 100%;
+  max-width: 250px;
+  
+  &--input {
+    border: none;
+    border-bottom: 1px solid #aaa;
+    width: 100%;
+    background: transparent;
+    margin: 10px;
+  }
+  
+  &--input:focus {
+    outline: none;
+  }
+  
+  &--input:focus + &--placeholder &--placeholder-text,
+  &--input:valid + &--placeholder &--placeholder-text{
+    bottom: 20px;
+    font-size: 12px;
+  }
+  
+  &--input:focus + &--placeholder:after{
+    width: 100%;
+    left: 0;
+  }
+  
+  &--placeholder {
+    position: absolute;
+    bottom: 2px;
+    left: 0px;
+    margin: 10px;
+    pointer-events: none;
+    width: 100%;
+    
+    &:after {
+      content: "";
+      width: 0;
+      height: 100%;
+      border-bottom: 2px solid #202F55;
+      position: absolute;
+      left: 50%;
+      transition: 500ms width ease, 500ms left ease;
+    }
+    
+    &-text {
+      position: absolute;
+      bottom: 2px;
+      transition: 500ms bottom ease, 500ms font-size ease;
+    }
+  }
 }
