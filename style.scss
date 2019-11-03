@@ -71,3 +71,18 @@ form {
     }
   }
 }
+
+#four0four {
+  background: red;
+  color: white;
+  height: 0;
+  padding: 0px;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: 350ms all ease-in;
+  
+  &.show {
+    height: 35px;
+    padding: 10px;
+  }
+}

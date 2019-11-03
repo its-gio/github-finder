@@ -3,12 +3,13 @@ import { ID , SECRET } from "./keys.js";
 document.querySelector("form").addEventListener("submit", (e) => e.preventDefault());
 const profileUI = document.querySelector("#profile");
 const reposUI = document.querySelector("#repos");
+const notFound = document.querySelector("#four0four");
 
 class Github {
   getInfo(userTyped) {
-    const milk = fetch(`https://api.github.com/users/i-gio?client_id=${ID}&client_secret=${SECRET}`)
+    const milk = fetch(`https://api.github.com/users/${userTyped}?client_id=${ID}&client_secret=${SECRET}`)
       .then(blob => blob.json());
-    const shake = fetch(`https://api.github.com/users/its-gio/repos?client_id=${ID}&client_secret=${SECRET}`)
+    const shake = fetch(`https://api.github.com/users/${userTyped}/repos?client_id=${ID}&client_secret=${SECRET}`)
       .then(blob => blob.json());
     
     return Promise.all([milk, shake]);
@@ -16,16 +17,19 @@ class Github {
 
   createProfile(user) {
     console.log(user)
-    profileUI.innerHTML = `${user.id}`;
+    profileUI.innerHTML = ``;
   }
   
   createRepos(repos) {
     console.log(repos)
-    reposUI.innerHTML = `${repos.length}`;
+    reposUI.innerHTML = ``;
   }
-
+  
   check(username) {
-    console.log(`"${username}" does not exist`);
+    notFound.innerHTML = `"${username}" does not exist`;
+    notFound.classList.add("show");
+
+    setTimeout(() => notFound.classList.remove("show"), 5000);
   }
 }
 
