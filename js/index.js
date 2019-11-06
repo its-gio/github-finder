@@ -22,11 +22,8 @@ class Github {
         <h2 class="id--name">${user.name}</h2>
         <p class="id--login">${user.login}</p>
         <img class="id--image" src="${user.avatar_url}" alt="">
-      </div>
-
-      <div class="connect">
-        <p><a href="${user.html_url}">Github</a></p>
-        <p><a href="${user.blog}">Personal Site/Blog</a></p>
+        <a href="${user.html_url}">Github</a>
+        <a href="${user.blog}">Personal Site/Blog</a>
       </div>
     `;
   }
@@ -42,6 +39,10 @@ class Github {
 
     setTimeout(() => notFound.classList.remove("show"), 5000);
   }
+
+  clear() {
+    profileUI.classList.add("clear");
+  }
 }
 
 document.getElementById("name").addEventListener("keyup", (e) => {
@@ -49,7 +50,13 @@ document.getElementById("name").addEventListener("keyup", (e) => {
   
   GH.getInfo(e.target.value)
     .then(([user, repos]) => {
-      if (!e.target.value) return;
+      if (!e.target.value) {
+        GH.clear();
+        return;
+      };
+
+      profileUI.classList.remove("clear");
+
       if (user.message === "Not Found") {
         GH.check(e.target.value);
         throw new Error(`"${e.target.value}" does not exist`);
