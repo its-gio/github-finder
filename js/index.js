@@ -17,7 +17,18 @@ class Github {
 
   createProfile(user) {
     console.log(user)
-    profileUI.innerHTML = ``;
+    profileUI.innerHTML = `
+      <div class="id">
+        <h2 class="id--name">${user.name}</h2>
+        <p class="id--login">${user.login}</p>
+        <img class="id--image" src="${user.avatar_url}" alt="">
+      </div>
+
+      <div class="connect">
+        <p><a href="${user.html_url}">Github</a></p>
+        <p><a href="${user.blog}">Personal Site/Blog</a></p>
+      </div>
+    `;
   }
   
   createRepos(repos) {
