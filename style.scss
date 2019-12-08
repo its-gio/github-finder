@@ -101,7 +101,7 @@ form {
   display: flex;
   transition: 300ms width ease-in;
 
-  &.clear {
+  .clear {
     display: none;
     width: 0;
   }

@@ -22,8 +22,8 @@ class Github {
         <h2 class="id--name">${user.name}</h2>
         <p class="id--login">${user.login}</p>
         <img class="id--image" src="${user.avatar_url}" alt="">
-        <a href="${user.html_url}">Github</a>
-        <a href="${user.blog}">Personal Site/Blog</a>
+        <a target="_blank" href="${user.html_url}">Github</a>
+        <a class="${user.blog ? "" : "clear"}" target="_blank" href="www.${user.blog}">Personal Site/Blog</a>
       </div>
     `;
   }
