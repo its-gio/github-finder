@@ -93,21 +93,23 @@ form {
 }
 
 #profile {
-  width: 95%;
-  max-width: 500px;
+  max-width: 1000px;
   background: rgba(255, 255, 255, .4);
   padding: 15px 25px;
   margin: 10px auto;
   display: flex;
   transition: 300ms width ease-in;
 
-  .clear {
-    display: none;
+  &.clear, .clear {
+    display: none !important;
     width: 0;
   }
 
   .id {
-    width: 100%;
+
+    a {
+      display: block;
+    }
 
     &--login {
       padding-bottom: 10px;
