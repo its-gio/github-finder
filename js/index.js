@@ -16,20 +16,20 @@ class Github {
   }
 
   createProfile(user) {
-    console.log(user)
+    // console.log(user)
     profileUI.innerHTML = `
       <div class="id">
         <h2 class="id--name">${user.name}</h2>
         <p class="id--login">${user.login}</p>
-        <img class="id--image" src="${user.avatar_url}" alt="">
+        <img class="id--image" src="${user.avatar_url}" alt="${user.name}'s profile image">
         <a target="_blank" href="${user.html_url}">Github</a>
-        <a class="${user.blog ? "" : "clear"}" target="_blank" href="www.${user.blog}">Personal Site/Blog</a>
+        <a class="${user.blog ? "" : "clear"}" target="_blank" href="${"http://" + user.blog}">Personal Site/Blog</a>
       </div>
     `;
   }
   
   createRepos(repos) {
-    console.log(repos)
+    // console.log(repos)
     reposUI.innerHTML = ``;
   }
   
@@ -39,32 +39,28 @@ class Github {
 
     setTimeout(() => notFound.classList.remove("show"), 5000);
   }
-
-  clear() {
-    profileUI.classList.add("clear");
-  }
 }
 
 document.getElementById("name").addEventListener("keyup", (e) => {
   const GH = new Github;
-  
-  GH.getInfo(e.target.value)
-    .then(([user, repos]) => {
-      if (!e.target.value) {
-        GH.clear();
-        return;
-      };
 
-      profileUI.classList.remove("clear");
+  if (e.target.value !== "") {
+    GH.getInfo(e.target.value)
+      .then(([user, repos]) => {
+        profileUI.classList.remove("clear")
 
-      if (user.message === "Not Found") {
-        GH.check(e.target.value);
-        throw new Error(`"${e.target.value}" does not exist`);
-      }
-      GH.createProfile(user);
-      GH.createRepos(repos);
-    })
-    .catch((err) => {
-        console.error(err);
-    })
+        if (user.message === "Not Found") {
+          GH.check(e.target.value);
+          throw new Error(`"${e.target.value}" does not exist`);
+        }
+
+        GH.createProfile(user);
+        GH.createRepos(repos);
+      })
+      .catch((err) => {
+          console.error(err);
+      })
+  } else {
+    profileUI.classList.add("clear")
+  }
 })
