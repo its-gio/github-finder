@@ -25,6 +25,17 @@ class Github {
         <a target="_blank" href="${user.html_url}">Profile</a>
         <a class="${user.blog ? "" : "clear"}" target="_blank" href="${"http://" + user.blog}">Personal Site</a>
       </div>
+        
+      <div class="specs">
+        <div class="specs--social">
+          <span>Public Repos: ${user.public_repos}</span>
+          <span>Public Gists: ${user.public_gists}</span>
+          <span>Following: ${user.following}</span>
+          <span>Followers: ${user.followers}</span>
+          <span>Hirable: ${user.hireable}</span>
+        </div>
+        <div class="specs--personal"></div>
+      </div>
     `;
   }
   

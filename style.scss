@@ -1,4 +1,4 @@
-* { box-sizing: border-box; padding: 0; margin: 0; }
+* { box-sizing: border-box; padding: 0; margin: 0; color: #333 }
 
 body {
   background: url("/images/45degreee_fabric.png");
@@ -115,6 +115,7 @@ form {
   }
 
   .id {
+    flex: 1;
 
     a {
       background: #007AFF;
@@ -134,9 +135,22 @@ form {
 
     &--image {
       max-width: 100%;
-      width: 250px;
     }
   }
 
-  
+  .specs {
+    flex: 2;
+
+    &--social {
+      display: flex;
+      justify-content: space-evenly;
+
+      span {
+        margin: 0 2px;
+        padding: 7px;
+        background: aliceblue;
+        border-radius: 5px;
+      }
+    }
+  }
 }
