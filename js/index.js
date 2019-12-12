@@ -32,9 +32,14 @@ class Github {
           <span>Public Gists: ${user.public_gists}</span>
           <span>Following: ${user.following}</span>
           <span>Followers: ${user.followers}</span>
-          <span>Hirable: ${user.hireable}</span>
         </div>
-        <div class="specs--personal"></div>
+        
+        <div class="specs--personal">
+          <p>Company: ${user.company}</p>
+          <p>Location: ${user.location}</p>
+          <p>Member Since: ${user.created_at}</p>
+          <p>Hirable: ${user.hireable}</p>
+        </div>
       </div>
     `;
   }

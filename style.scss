@@ -152,5 +152,16 @@ form {
         border-radius: 5px;
       }
     }
+
+    &--personal {
+      border-radius: 5px;
+      max-width: 90%;
+      margin: 50px auto;
+
+      p {
+        padding: 5px;
+        border: 1px solid #999;
+      }
+    }
   }
 }
