@@ -6,6 +6,15 @@ body {
   padding: 10px;
 }
 
+a {
+  display: block;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
 // Form Styles
 form {
   display: flex;
@@ -108,17 +117,11 @@ form {
   .id {
 
     a {
-      display: block;
-      padding: 5px;
-      text-align: center;
       background: #007AFF;
       color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-      margin: 5px 0;
       border: 5px solid #007AFF;
       transition: 250ms background-color ease-in, 500ms color ease-in;
-
+    
       &:hover {
         background-color: #fff;
         color: #007AFF;
@@ -134,4 +137,6 @@ form {
       width: 250px;
     }
   }
+
+  
 }
