@@ -109,6 +109,20 @@ form {
 
     a {
       display: block;
+      padding: 5px;
+      text-align: center;
+      background: #007AFF;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      margin: 5px 0;
+      border: 5px solid #007AFF;
+      transition: 250ms background-color ease-in, 500ms color ease-in;
+
+      &:hover {
+        background-color: #fff;
+        color: #007AFF;
+      }
     }
 
     &--login {

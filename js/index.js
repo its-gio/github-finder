@@ -16,14 +16,14 @@ class Github {
   }
 
   createProfile(user) {
-    // console.log(user)
+    console.log(user)
     profileUI.innerHTML = `
       <div class="id">
         <h2 class="id--name">${user.name}</h2>
         <p class="id--login">${user.login}</p>
         <img class="id--image" src="${user.avatar_url}" alt="${user.name}'s profile image">
-        <a target="_blank" href="${user.html_url}">Github</a>
-        <a class="${user.blog ? "" : "clear"}" target="_blank" href="${"http://" + user.blog}">Personal Site/Blog</a>
+        <a target="_blank" href="${user.html_url}">Profile</a>
+        <a class="${user.blog ? "" : "clear"}" target="_blank" href="${"http://" + user.blog}">Personal Site</a>
       </div>
     `;
   }
