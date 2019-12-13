@@ -6,15 +6,6 @@ body {
   padding: 10px;
 }
 
-a {
-  display: block;
-  padding: 5px;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 5px;
-  margin: 5px 0;
-}
-
 // Form Styles
 form {
   display: flex;
@@ -101,6 +92,11 @@ form {
   }
 }
 
+.clear {
+  display: none !important;
+  width: 0;
+}
+
 #profile {
   max-width: 1000px;
   background: rgba(255, 255, 255, .4);
@@ -109,15 +105,16 @@ form {
   display: flex;
   transition: 300ms width ease-in;
 
-  &.clear, .clear {
-    display: none !important;
-    width: 0;
-  }
-
   .id {
     flex: 1;
 
     a {
+      display: block;
+      padding: 5px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 5px;
+      margin: 5px 0;
       background: #007AFF;
       color: #fff;
       border: 5px solid #007AFF;
@@ -161,6 +158,39 @@ form {
       p {
         padding: 5px;
         border: 1px solid #999;
+      }
+    }
+  }
+}
+
+#repos {
+  max-width: 1000px;
+  background: rgba(255, 255, 255, .4);
+  padding: 15px 25px;
+  margin: 10px auto;
+  transition: 300ms width ease-in;
+
+  .list {
+    list-style: none;
+
+    &--item {
+      padding: 10px;
+      border: 1px solid #999;
+      margin-top: 5px;
+      display: flex;
+
+      span {
+        flex: 1;
+        display: flex;
+        
+        a {
+          text-decoration: none;
+        }
+        
+        span {
+          justify-content: space-evenly;
+          margin: 0 5px;
+        }
       }
     }
   }

@@ -3,6 +3,7 @@ import { ID , SECRET } from "./keys.js";
 document.querySelector("form").addEventListener("submit", (e) => e.preventDefault());
 const profileUI = document.querySelector("#profile");
 const reposUI = document.querySelector("#repos");
+const reposListUI = document.querySelector("#repos .list");
 const notFound = document.querySelector("#four0four");
 
 class Github {
@@ -16,7 +17,6 @@ class Github {
   }
 
   createProfile(user) {
-    console.log(user)
     profileUI.innerHTML = `
       <div class="id">
         <h2 class="id--name">${user.name}</h2>
@@ -45,8 +45,21 @@ class Github {
   }
   
   createRepos(repos) {
-    // console.log(repos)
-    reposUI.innerHTML = ``;
+    console.log(repos)
+    reposListUI.innerHTML = ""
+    repos.forEach(repo => {
+      let content = document.createElement("li")
+      content.classList.add("list--item")
+      content.innerHTML = `
+        <span><a target="_blank" href="${repo.html_url}">${repo.name}</a></span>
+        <span>
+          <span>Stars: ${repo.stargazers_count}</span>
+          <span>Watches: ${repo.watchers_count}</span>
+          <span>Forks: ${repo.forks_count}</span>
+        </span>
+      `
+      return reposListUI.append(content);
+    });
   }
   
   check(username) {
@@ -64,6 +77,7 @@ document.getElementById("name").addEventListener("keyup", (e) => {
     GH.getInfo(e.target.value)
       .then(([user, repos]) => {
         profileUI.classList.remove("clear")
+        reposUI.classList.remove("clear")
 
         if (user.message === "Not Found") {
           GH.check(e.target.value);
@@ -78,5 +92,6 @@ document.getElementById("name").addEventListener("keyup", (e) => {
       })
   } else {
     profileUI.classList.add("clear")
+    reposUI.classList.add("clear")
   }
 })
