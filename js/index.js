@@ -45,7 +45,6 @@ class Github {
   }
   
   createRepos(repos) {
-    console.log(repos)
     reposListUI.innerHTML = ""
     repos.forEach(repo => {
       let content = document.createElement("li")
