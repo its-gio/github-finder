@@ -10,7 +10,7 @@ class Github {
   getInfo(userTyped) {
     const milk = fetch(`https://api.github.com/users/${userTyped}?client_id=${ID}&client_secret=${SECRET}`)
       .then(blob => blob.json());
-    const shake = fetch(`https://api.github.com/users/${userTyped}/repos?client_id=${ID}&client_secret=${SECRET}`)
+    const shake = fetch(`https://api.github.com/users/${userTyped}/repos?sort=create: asc&client_id=${ID}&client_secret=${SECRET}`)
       .then(blob => blob.json());
     
     return Promise.all([milk, shake]);
