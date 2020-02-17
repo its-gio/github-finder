@@ -1,14 +1,14 @@
 import React from 'react';
 import './App.scss';
 import Navbar from "./components/Navbar"
-import UserItem from './components/UserItem';
+import Users from './components/Users';
 
 class App extends React.Component {
   render() {
     return (
       <div className="App">
         <Navbar />
-        <UserItem />
+        <Users />
       </div>
     );
   }

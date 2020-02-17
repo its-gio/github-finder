@@ -1,15 +1,9 @@
 import React, { Component } from 'react'
 
 export default class UserItem extends Component {
-  state = {
-    img: "https://avatars3.githubusercontent.com/u/9650600",
-    name: "its-gio",
-    link: "https://github.com/its-gio"
-  }
-
-
   render() {
-    const  { img, name, link } = this.state
+    const  { img, name, link } = this.props.user;
+    
     return (
       <div className="user-item">
         <div className="user-item--img-container">
