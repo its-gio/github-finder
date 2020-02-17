@@ -7,11 +7,29 @@ a {
   text-align: center;
 }
 
+// User Grid
+.user-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 // User Item
 .user-item {
-  border: 1px solid black;
+  border: 1px solid #ddd;
   margin: 15px;
   padding: 15px;
+
+  &--img-container {
+    width: 100px;
+    margin: 0 auto;
+
+    &__img {
+      width: 100%;
+      border-radius: 50%;
+    }
+  }
 
   &--moreBtn-container {
     
@@ -19,6 +37,7 @@ a {
       padding: 10px 20px;
       background-color: #eff3f6;
       color: #24292e;
+      border-radius: 5px;
     }
   }
 }

@@ -30,7 +30,7 @@ export default class Users extends Component {
   render() {
     const usersMap = this.state.users.map((user, i) => <UserItem key={i} user={user} />)
     return (
-      <div>
+      <div className="user-grid">
         { usersMap }
       </div>
     )
