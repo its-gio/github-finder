@@ -1,9 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class UserItem extends Component {
-  render() {
-    const  { img, name, link } = this.props.user;
-    
+const UserItem  = ({user : {img, name, link}}) => {
     return (
       <div className="user-item">
         <div className="user-item--img-container">
@@ -16,5 +13,6 @@ export default class UserItem extends Component {
         </div>
       </div>
     )
-  }
 }
+
+export default UserItem;
