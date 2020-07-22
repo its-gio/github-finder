@@ -1,6 +1,6 @@
 import React from 'react'
 
-const UserItem  = ({user : {avatar_url, login, url}}) => {
+const UserItem  = ({user : {avatar_url, login, html_url}}) => {
     return (
       <div className="user-item">
         <div className="user-item--img-container">
@@ -9,7 +9,7 @@ const UserItem  = ({user : {avatar_url, login, url}}) => {
         <h3>{login}</h3>
 
         <div className="user-item--moreBtn-container">
-          <a className="user-item--moreBtn-container__btn" rel="noopener noreferrer" target="_blank" href={url}>More &gt;</a>
+          <a className="user-item--moreBtn-container__btn" rel="noopener noreferrer" target="_blank" href={html_url}>More &gt;</a>
         </div>
       </div>
     )
