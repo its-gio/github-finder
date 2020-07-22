@@ -1,13 +1,19 @@
-import React, { Component } from 'react'
-import UserItem from './UserItem'
+import React, { Component } from 'react';
+import UserItem from './UserItem';
+import Spinner from "./Spinner";
 
-export default class Users extends Component {
-  render() {
-    const usersMap = this.props.users.map((user, i) => <UserItem key={i} user={user} />)
-    return (
-      <div className="user-grid">
-        { usersMap }
-      </div>
-    )
-  }
+function Users(props) {
+    const usersMap = props.users.map((user, i) => <UserItem key={user.id} user={user} />)
+
+    if(props.loading) {
+      return <Spinner />
+    } else {
+      return (
+        <div className="user-grid">
+          { usersMap }
+        </div>
+      )
+    }
 }
+
+export default Users;
