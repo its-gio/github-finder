@@ -9,7 +9,7 @@ const UserItem  = ({user : {avatar_url, login, url}}) => {
         <h3>{login}</h3>
 
         <div className="user-item--moreBtn-container">
-          <a className="user-item--moreBtn-container__btn" href={url}>More ></a>
+          <a className="user-item--moreBtn-container__btn" target="_blank" href={url}>More &gt;</a>
         </div>
       </div>
     )
