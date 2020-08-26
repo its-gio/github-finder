@@ -38,6 +38,8 @@ a {
   }
 
   &--moreBtn-container {
+    display: flex;
+    justify-content: center;
     
     &__btn {
       padding: 10px 20px;
