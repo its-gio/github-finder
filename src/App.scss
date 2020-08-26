@@ -1,3 +1,9 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 a {
   color: black;
   text-decoration: none;
@@ -5,6 +11,15 @@ a {
 
 .App {
   text-align: center;
+}
+
+// Alert
+.alert {
+  padding: 10px;
+  color: white;
+  background: red;
+  max-width: 550px;
+  margin: 0 auto;
 }
 
 // Search
@@ -15,8 +30,18 @@ form {
   max-width: 550px;
   margin: 0 auto;
 
+  .username {
+    border-bottom: 1px solid #333;
+  }
+
   input {
     margin: 5px 0;
+    padding: 5px;
+    border: none;
+
+    &:focus {
+      outline: none;
+    }
   }
 }
 

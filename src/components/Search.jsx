@@ -8,11 +8,16 @@ export class Search extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.searchUser(this.state.username);
+    if (!this.state.username) {
+      this.props.setAlert("Search can not be empty");
+    } else {
+      this.setState({ searched: true });
+      this.props.searchUser(this.state.username);
+    }
   };
 
   handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value, searched: true });
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   clearSearch = (e) => {
@@ -29,12 +34,11 @@ export class Search extends Component {
           placeholder="Enter Username..."
           value={this.state.username}
           type="text"
+          className="username"
         />
         <input type="submit" value="Submit" />
-        {this.state.searched ? (
+        {this.state.searched && (
           <input onClick={this.clearSearch} type="button" value="Clear" />
-        ) : (
-          ""
         )}
       </form>
     );
