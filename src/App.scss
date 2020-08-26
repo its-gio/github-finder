@@ -7,6 +7,19 @@ a {
   text-align: center;
 }
 
+// Search
+form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 550px;
+  margin: 0 auto;
+
+  input {
+    margin: 5px 0;
+  }
+}
+
 // Spinner
 .spinner {
   margin: auto;
@@ -40,7 +53,7 @@ a {
   &--moreBtn-container {
     display: flex;
     justify-content: center;
-    
+
     &__btn {
       padding: 10px 20px;
       background-color: #eff3f6;
