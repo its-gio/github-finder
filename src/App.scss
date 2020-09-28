@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+ul {
+  list-style-type: none;
+}
+
 a {
   color: black;
   text-decoration: none;
@@ -11,6 +15,13 @@ a {
 
 .App {
   text-align: center;
+}
+
+// Nav
+nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 10px;
 }
 
 // Alert
