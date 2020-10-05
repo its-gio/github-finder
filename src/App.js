@@ -48,7 +48,7 @@ class App extends React.Component {
 
     const res = await prom.json();
 
-    this.setState({ user: res });
+    this.setState({ user: res, loading: false });
   };
 
   setAlert = (msg) => {

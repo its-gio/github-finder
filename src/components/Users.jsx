@@ -3,7 +3,7 @@ import UserItem from "./UserItem";
 import Spinner from "./Spinner";
 
 function Users(props) {
-  const usersMap = props.users.map((user, i) => (
+  const usersMap = props.users.map((user) => (
     <UserItem key={user.id} user={user} />
   ));
 
