@@ -22,6 +22,7 @@ nav {
   display: flex;
   justify-content: space-around;
   padding: 20px 10px;
+  align-items: center;
 }
 
 // Alert
@@ -96,15 +97,15 @@ form {
     }
   }
 
-  &--moreBtn-container {
-    display: flex;
-    justify-content: center;
+  &--btn {
+    margin: 10px 0px;
+    padding: 10px;
+    background-color: #eff3f6;
+    color: #24292e;
+    border-radius: 5px;
 
-    &__btn {
-      padding: 10px 20px;
-      background-color: #eff3f6;
-      color: #24292e;
-      border-radius: 5px;
+    &:hover {
+      cursor: pointer;
     }
   }
 }

@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const UserItem = ({ user: { avatar_url, login, html_url } }) => {
+const UserItem = ({ user: { avatar_url, login } }) => {
   return (
     <div className="user-item">
       <div className="user-item--img-container">
@@ -12,16 +13,9 @@ const UserItem = ({ user: { avatar_url, login, html_url } }) => {
       </div>
       <h3>{login}</h3>
 
-      <div className="user-item--moreBtn-container">
-        <a
-          className="user-item--moreBtn-container__btn"
-          rel="noopener noreferrer"
-          target="_blank"
-          href={html_url}
-        >
-          More &gt;
-        </a>
-      </div>
+      <Link to={`/user/${login}`}>
+        <div className="user-item--btn">More &gt;</div>
+      </Link>
     </div>
   );
 };

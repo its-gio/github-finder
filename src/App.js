@@ -6,10 +6,12 @@ import Users from "./components/Users";
 import Search from "./components/Search";
 import Alert from "./components/Alert";
 import About from "./components/pages/About";
+import User from "./components/pages/User";
 
 class App extends React.Component {
   state = {
     users: [],
+    user: {},
     alert: null,
     loading: false,
   };
@@ -38,17 +40,29 @@ class App extends React.Component {
     this.setState({ users: res.items, loading: false });
   };
 
+  getUser = async (user) => {
+    this.setState({ loading: true });
+    const prom = await fetch(
+      `https://api.github.com/users/${user}?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+    );
+
+    const res = await prom.json();
+
+    this.setState({ user: res });
+  };
+
   setAlert = (msg) => {
     this.setState({ alert: msg });
     setTimeout(() => this.setState({ alert: null }), 5000);
   };
 
   render() {
+    const { alert, loading, users, user } = this.state;
     return (
       <Router>
         <div className="App">
           <Navbar />
-          <Alert alert={this.state.alert} />
+          <Alert alert={alert} />
           <Switch>
             <Route
               path="/about"
@@ -59,18 +73,26 @@ class App extends React.Component {
               )}
             />
             <Route
-              path="/"
+              path="/user/:login"
               render={(props) => (
+                <User
+                  {...props}
+                  getUser={this.getUser}
+                  user={user}
+                  loading={loading}
+                />
+              )}
+            />
+            <Route
+              path="/"
+              render={() => (
                 <>
                   <Search
                     searchUser={this.searchUser}
                     initialGetUsers={this.initialGetUsers}
                     setAlert={this.setAlert}
                   />
-                  <Users
-                    loading={this.state.loading}
-                    users={this.state.users}
-                  />
+                  <Users loading={loading} users={users} />
                 </>
               )}
             />
