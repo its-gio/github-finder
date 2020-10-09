@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Spinner from "../Spinner";
 
 function User(props) {
   useEffect(() => {
@@ -19,6 +20,8 @@ function User(props) {
     followering,
     hireable,
   } = props.user;
+
+  if (props.loading) return <Spinner />
 
   return <div>{name}</div>;
 }
