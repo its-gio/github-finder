@@ -22,7 +22,7 @@ export class Search extends Component {
 
   clearSearch = (e) => {
     this.setState({ username: "", searched: false });
-    this.props.initialGetUsers();
+    this.props.clearSearch();
   };
 
   render() {

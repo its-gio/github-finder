@@ -16,19 +16,7 @@ class App extends React.Component {
     loading: false,
   };
 
-  componentDidMount() {
-    this.initialGetUsers();
-  }
-
-  initialGetUsers = async () => {
-    this.setState({ loading: true });
-    const prom = await fetch(
-      `https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
-    );
-    const res = await prom.json();
-
-    this.setState({ users: res, loading: false });
-  };
+  clearSearch = () => this.setState({ users: [] });
 
   searchUser = async (username) => {
     this.setState({ loading: true });
@@ -89,7 +77,7 @@ class App extends React.Component {
                 <>
                   <Search
                     searchUser={this.searchUser}
-                    initialGetUsers={this.initialGetUsers}
+                    clearSearch={this.clearSearch}
                     setAlert={this.setAlert}
                   />
                   <Users loading={loading} users={users} />
