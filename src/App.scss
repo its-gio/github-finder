@@ -13,10 +13,6 @@ a {
   text-decoration: none;
 }
 
-.App {
-  text-align: center;
-}
-
 // Nav
 nav {
   display: flex;
@@ -86,6 +82,7 @@ form {
   border: 1px solid #ddd;
   margin: 15px;
   padding: 15px;
+  text-align: center;
 
   &--img-container {
     width: 100px;
@@ -106,6 +103,54 @@ form {
 
     &:hover {
       cursor: pointer;
+    }
+  }
+}
+
+// Single User
+.single-user {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  &--hireable {
+    display: flex;
+    align-items: center;
+    margin: 10px 20px;
+
+    svg {
+      margin: 0 5px;
+    }
+  }
+
+  &--info {
+    margin: 10px 20px;
+    display: flex;
+
+    &__personal {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+
+      .avatar-container {
+        width: 230px;
+
+        img {
+          width: 100%;
+          border-radius: 20px;
+        }
+      }
+    }
+
+    &__connect {
+      flex: 1;
+
+      .user-website {
+        padding: 10px;
+        background: #eee;
+        border-radius: 5px;
+        display: inline-block;
+      }
     }
   }
 }
