@@ -12,6 +12,7 @@ class App extends React.Component {
   state = {
     users: [],
     user: {},
+    userRepos: [],
     alert: null,
     loading: false,
   };
@@ -39,13 +40,24 @@ class App extends React.Component {
     this.setState({ user: res, loading: false });
   };
 
+  getUserRepos = async (user) => {
+    this.setState({ loading: true });
+    const prom = await fetch(
+      `https://api.github.com/users/${user}/repos?per_page=5&sort=created:asc&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+    )
+
+    const res = await prom.json();
+
+    this.setState({ userRepos: res, loading: false })
+  }
+
   setAlert = (msg) => {
     this.setState({ alert: msg });
     setTimeout(() => this.setState({ alert: null }), 5000);
   };
 
   render() {
-    const { alert, loading, users, user } = this.state;
+    const { alert, loading, users, user, userRepos } = this.state;
     return (
       <Router>
         <div className="App">
@@ -66,7 +78,9 @@ class App extends React.Component {
                 <User
                   {...props}
                   getUser={this.getUser}
+                  getUserRepos={this.getUserRepos}
                   user={user}
+                  userRepos={userRepos}
                   loading={loading}
                 />
               )}

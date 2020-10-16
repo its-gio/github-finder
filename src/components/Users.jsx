@@ -1,5 +1,5 @@
 import React from "react";
-import UserItem from "./UserItem";
+import UserItem from "./UsersItem";
 import Spinner from "./Spinner";
 
 function Users(props) {

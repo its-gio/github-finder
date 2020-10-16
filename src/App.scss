@@ -153,4 +153,18 @@ form {
       }
     }
   }
+
+  hr {
+    margin: 30px;
+  }
+
+  &--repos {
+    margin: 10px 20px;
+
+    &__repo {
+      padding: 10px;
+      border: 2px #aaa solid;
+      margin: 10px 0;
+    }
+  }
 }

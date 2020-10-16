@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 import Spinner from "../Spinner";
 import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
+import Repos from "../Repos";
 
 function User(props) {
   useEffect(() => {
     props.getUser(props.match.params.login);
+    props.getUserRepos(props.match.params.login);
   }, []);
 
   const {
@@ -57,6 +59,8 @@ function User(props) {
           { blog && <p><strong>Website:</strong> <a href={`http://${blog}`}>{blog}</a></p> }
         </div>
       </div>
+      <hr/>
+      <Repos userRepos={props.userRepos} />
     </div>
   )}
 
